@@ -1,5 +1,5 @@
 import { toast } from "react-hot-toast"
-import rzpLogo from "../../assets/Logo/rzp_logo.jpeg";
+import rzpLogo from "../../assets/Logo/rzp_logo.jpeg"
 import { resetCart } from "../../slices/cartSlice"
 import { setPaymentLoading } from "../../slices/courseSlice"
 import { apiConnector } from "../apiConnector"
@@ -40,9 +40,7 @@ export async function BuyCourse(
     const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js")
 
     if (!res) {
-      toast.error(
-        "Razorpay SDK failed to load. Check your Internet Connection."
-      )
+      toast.error("Razorpay SDK failed to load. Check your Internet Connection.")
       return
     }
 
@@ -61,15 +59,17 @@ export async function BuyCourse(
     if (!orderResponse.data.success) {
       throw new Error(orderResponse.data.message)
     }
-    console.log("PAYMENT RESPONSE FROM BACKEND............", orderResponse.data)
 
+    console.log("PAYMENT RESPONSE FROM BACKEND............", orderResponse.data);
+
+//************************************************** Problem ******************************************************************/
     // Opening the Razorpay SDK
     const options = {
-      key: process.env.RAZORPAY_KEY,
-      currency: orderResponse.data.data.currency,
+      key: process.env.REACT_APP_RAZORPAY_KEY_ID, //Problem
+      currency: orderResponse.data.data.currency, //Problem
       amount: `${orderResponse.data.data.amount}`,
       order_id: orderResponse.data.data.id,
-      name: "Skill_Teach",
+      name: "SkillTeach",
       description: "Thank you for Purchasing the Course.",
       image: rzpLogo,
       prefill: {
@@ -77,13 +77,13 @@ export async function BuyCourse(
         email: user_details.email,
       },
       handler: function (response) {
-        sendPaymentSuccessEmail(response, orderResponse.data.data.amount, token)
+        sendPaymentSuccessEmail(response, orderResponse.data.data.amount, token) //Problem 
         verifyPayment({ ...response, courses }, token, navigate, dispatch)
       },
     }
-    const paymentObject = new window.Razorpay(options)
 
-    paymentObject.open()
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
     paymentObject.on("payment.failed", function (response) {
       toast.error("Oops! Payment Failed.")
       console.log(response.error)
@@ -94,6 +94,8 @@ export async function BuyCourse(
   }
   toast.dismiss(toastId)
 }
+
+//***********************************************************************************************************//
 
 // Verify the Payment
 async function verifyPayment(bodyData, token, navigate, dispatch) {
@@ -113,7 +115,8 @@ async function verifyPayment(bodyData, token, navigate, dispatch) {
     toast.success("Payment Successful. You are Added to the course ")
     navigate("/dashboard/enrolled-courses")
     dispatch(resetCart())
-  } catch (error) {
+  } 
+  catch (error) {
     console.log("PAYMENT VERIFY ERROR............", error)
     toast.error("Could Not Verify Payment.")
   }
