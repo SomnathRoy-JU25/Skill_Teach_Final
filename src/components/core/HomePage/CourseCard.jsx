@@ -10,7 +10,7 @@ const CourseCard = ({cardData, currentCard, setCurrentCard}) => {
       className={`w-[360px] lg:w-[30%] ${
         currentCard === cardData?.heading
           ? "bg-white shadow-[12px_12px_0_0] shadow-yellow-50"
-          : "bg-richblack-800"
+          : "bg-purple-700"
       }  text-richblack-25 h-[300px] box-border cursor-pointer`}
       onClick={() => setCurrentCard(cardData?.heading)}
     >

@@ -24,7 +24,8 @@ function Navbar() {
   useEffect(() => {
     ;(async () => {
       setLoading(true)
-      try {
+      try { 
+        // BackEnd API CALL
         const res = await apiConnector("GET", categories.CATEGORIES_API)
         setSubLinks(res.data.data)
       } catch (error) {
@@ -147,6 +148,7 @@ function Navbar() {
       </div>
     </div>
   )
+  
 }
 
 export default Navbar

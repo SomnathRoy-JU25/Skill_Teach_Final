@@ -13,6 +13,7 @@ const {
   RESETPASSWORD_API,
 } = endpoints
 
+//Send Otp Function
 export function sendOtp(email, navigate) {
   return async (dispatch) => {
     const toastId = toast.loading("Loading...")
@@ -40,6 +41,7 @@ export function sendOtp(email, navigate) {
     toast.dismiss(toastId)
   }
 }
+
 
 export function signUp(
   accountType,

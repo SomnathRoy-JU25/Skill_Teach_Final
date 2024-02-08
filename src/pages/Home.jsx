@@ -13,6 +13,8 @@ import HighlightText from "../components/core/HomePage/HighlightText"
 import InstructorSection from "../components/core/HomePage/InstructorSection"
 import LearningLanguageSection from "../components/core/HomePage/LearningLanguageSection"
 import TimelineSection from "../components/core/HomePage/Timeline"
+import Type from "./Type";
+
 
 function Home() {
   return (
@@ -31,12 +33,13 @@ function Home() {
 
         {/* Heading */}
         <div className="text-center text-4xl font-semibold">
-          Empower Your Future with
-          <HighlightText text={"Coding Skills"} />
+          Empower Your Future with <div className="bg-gradient-to-b from-[#1FA2FF] via-[#12D8FA] to-[#A6FFCB] text-transparent bg-clip-text font-bold">
+          <Type/> </div>
+          {/* <HighlightText text={<Type/>} /> */}
         </div>
 
         {/* Sub Heading */}
-        <div className="-mt-3 w-[90%] text-center text-lg font-bold text-purple-5">
+        <div className="-mt-3 w-[90%] text-center text-lg font-bold text-purple-25">
           With our online coding courses, you can learn at your own pace, from
           anywhere in the world, and get access to a wealth of resources,
           including hands-on projects, quizzes, and personalized feedback from
@@ -54,14 +57,14 @@ function Home() {
         </div>
 
         {/* Video */}
-        <div className="mx-3 my-7 shadow-[10px_-5px_50px_-5px] shadow-blue-200">
+        <div className="mx-3 my-7 shadow-[10px_-5px_50px_-5px] shadow-blue-200 ">
           <video
-            className="shadow-[20px_20px_rgba(255,255,255)]"
+            className="shadow-[20px_20px_rgba(255,255,255)] rounded-2xl border-purple-800"
             muted
             loop
             autoPlay
           >
-            <source src={Banner} type="video/mp4" />
+            <source src={Banner}  type="video/mp4" />
           </video>
         </div>
 
@@ -177,7 +180,7 @@ function Home() {
 
       {/* Section 3 */}
       <div className="relative mx-auto my-20 flex w-11/12 max-w-maxContent flex-col items-center justify-between 
-      gap-8 bg-purple-200 text-white">
+      gap-8 bg-purple-200 text-white rounded-lg">
         {/* Become a instructor section */}
         <InstructorSection />
 

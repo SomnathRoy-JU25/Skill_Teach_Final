@@ -28,7 +28,7 @@ export const getAllCourses = async () => {
   const toastId = toast.loading("Loading...")
   let result = []
   try {
-    const response = await apiConnector("GET", GET_ALL_COURSE_API)
+    const response = await apiConnector("GET", GET_ALL_COURSE_API) //Axios backend Call
     if (!response?.data?.success) {
       throw new Error("Could Not Fetch Course Categories")
     }
@@ -46,7 +46,7 @@ export const fetchCourseDetails = async (courseId) => {
   //   dispatch(setLoading(true));
   let result = null
   try {
-    const response = await apiConnector("POST", COURSE_DETAILS_API, {
+    const response = await apiConnector("POST", COURSE_DETAILS_API, { //Axios backend Call
       courseId,
     })
     console.log("COURSE_DETAILS_API API RESPONSE............", response)

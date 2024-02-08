@@ -8,6 +8,7 @@ import { login } from "../../../services/operations/authAPI"
 function LoginForm() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -15,7 +16,7 @@ function LoginForm() {
 
   const [showPassword, setShowPassword] = useState(false)
 
-  const { email, password } = formData
+  const { email, password } = formData ;
 
   const handleOnChange = (e) => {
     setFormData((prevData) => ({

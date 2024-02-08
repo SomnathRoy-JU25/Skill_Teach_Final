@@ -48,11 +48,10 @@ function App() {
   }, [])
 
   return (
-    
     <div className="flex min-h-screen w-screen flex-col bg-purple-300 font-inter">
-        <div className="bg-purple-800">
-          <Navbar />
-        </div>
+      <div className="bg-purple-800">
+        <Navbar />
+      </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -128,8 +127,11 @@ function App() {
             <>
               <Route
                 path="dashboard/enrolled-courses"
-                element={<div className="bg-purple-700 rounded-lg pt-0 m-2">
-                <EnrolledCourses /></div>}
+                element={
+                  <div className="m-2 rounded-lg bg-purple-700 pt-0">
+                    <EnrolledCourses />
+                  </div>
+                }
               />
               <Route path="/dashboard/cart" element={<Cart />} />
             </>
@@ -145,7 +147,7 @@ function App() {
             </PrivateRoute>
           }
         >
-          { user?.accountType === ACCOUNT_TYPE.STUDENT && (
+          {user?.accountType === ACCOUNT_TYPE.STUDENT && (
             <>
               <Route
                 path="view-course/:courseId/section/:sectionId/sub-section/:subSectionId"
@@ -162,4 +164,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
