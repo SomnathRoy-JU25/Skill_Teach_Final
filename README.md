@@ -18,7 +18,7 @@ MVC, JWT, Redux toolkit
 1.  Clone the repository :
 
 ```bash
-git clone https://github.com/SomnathRoy-JU25/Skill_Teach_Final.git
+   git clone https://github.com/SomnathRoy-JU25/Skill_Teach_Final.git
 ```
 
 2. Back-end Setup :
@@ -40,9 +40,9 @@ git clone https://github.com/SomnathRoy-JU25/Skill_Teach_Final.git
 
 1. Run the following command to start the application:
 
-   ```bash
-      npm run dev
-   ```
+```bash
+   npm run dev
+```
 
 ## Documentation of PostmanAPI for API Testing
 
