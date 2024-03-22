@@ -34,6 +34,10 @@ import ViewCourse from "./pages/ViewCourse"
 import { getUserDetails } from "./services/operations/profileAPI"
 import { ACCOUNT_TYPE } from "./utils/constants"
 
+//Video Call
+import CallPage from "./VideoCall/CallPage"
+import RoomPage from "./VideoCall/RoomPage"
+
 function App() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -107,6 +111,10 @@ function App() {
             </PrivateRoute>
           }
         >
+          
+          <Route path="dashboard/addtoCall" element={<CallPage />} />
+          <Route path='dashboard/room/:roomId' element={<RoomPage />} />
+          
           {/* Route for all users */}
           <Route path="dashboard/my-profile" element={<MyProfile />} />
           <Route path="dashboard/Settings" element={<Settings />} />

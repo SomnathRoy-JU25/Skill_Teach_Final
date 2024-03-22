@@ -37,6 +37,12 @@ export const sidebarLinks = [
   },
   {
     id: 7,
+    name: "Doubt Support",
+    path: "/dashboard/addtoCall",
+    icon: "VscDeviceCameraVideo",
+  },
+  {
+    id: 8,
     name: "Cart",
     path: "/dashboard/cart",
     type: ACCOUNT_TYPE.STUDENT,

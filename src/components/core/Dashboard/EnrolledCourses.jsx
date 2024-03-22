@@ -3,8 +3,9 @@ import ProgressBar from "@ramonak/react-progress-bar"
 import { BiDotsVerticalRounded } from "react-icons/bi"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-
 import { getUserEnrolledCourses } from "../../../services/operations/profileAPI"
+import CTAButton from  "../../core/HomePage/Button"
+
 
 export default function EnrolledCourses() {
   const { token } = useSelector((state) => state.auth)
@@ -34,7 +35,12 @@ export default function EnrolledCourses() {
 
   return (
     <>
-      <div className="text-3xl text-purple-5 pt-2 pl-2"> Enrolled Courses </div>
+      <div className="flex flex-start justify-between items-center">
+      <div className="text-3xl text-purple-5 pt-2 pl-2 pb-2 font-bold items-center"> Enrolled Courses </div>
+         <CTAButton active={true} linkto={"/dashboard/addtoCall"}>
+            One on One Doubt Solve
+          </CTAButton>
+      </div>
       {!enrolledCourses ? (
         <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
           <div className="spinner"></div>
@@ -48,9 +54,9 @@ export default function EnrolledCourses() {
         <div className="my-8 text-purple-5">
           {/* Headings */}
           <div className="flex rounded-t-lg bg-purple-700 ">
-            <p className="w-[45%] px-5 py-3">Course Name</p>
-            <p className="w-1/4 px-2 py-3">Duration</p>
-            <p className="flex-1 px-2 py-3">Progress</p>
+            <p className="w-[45%] px-5 py-3 font-medium">Course Name</p>
+            <p className="w-1/4 px-2 py-3 font-medium">Duration</p>
+            <p className="flex-1 px-2 py-3 font-medium">Progress</p>
           </div>
           {/* Course Names */}
           {enrolledCourses.map((course, i, arr) => (

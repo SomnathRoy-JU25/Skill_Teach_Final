@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom"
 import { fetchInstructorCourses } from "../../../services/operations/courseDetailsAPI"
 import IconBtn from "../../Common/IconBtn"
 import CoursesTable from "./InstructorCourses/CoursesTable"
+import CTAButton from  "../../core/HomePage/Button"
+
 
 export default function MyCourses() {
   const { token } = useSelector((state) => state.auth)
@@ -27,6 +29,11 @@ export default function MyCourses() {
     <div>
       <div className="mb-14 flex items-center justify-between">
         <h1 className="text-3xl font-medium text-richblack-5">My Courses</h1>
+         
+        <CTAButton active={true} linkto={"/dashboard/addtoCall"}>
+            One on One Video Call 
+          </CTAButton>
+        
         <IconBtn
           text="Add Course"
           onclick={() => navigate("/dashboard/add-course")}
