@@ -67,7 +67,7 @@ exports.paymentSuccessEmail = (name, amount, orderId, paymentId) => {
     
     <body>
         <div class="container">
-            <a href=""><img class="logo" 
+            <a href="https://skill-teach-somnath-roy.vercel.app/"><img class="logo" 
             src="https://i.ibb.co/df3xLtN/Skill-Teach-logos-1.jpg"
                     alt="Skill Teach Logo"></a>
             <div class="message">Course Payment Confirmation</div>
