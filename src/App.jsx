@@ -38,6 +38,8 @@ import { ACCOUNT_TYPE } from "./utils/constants"
 import CallPage from "./VideoCall/CallPage"
 import RoomPage from "./VideoCall/RoomPage"
 
+// Notes Sharing 
+import CreateNotes from "./components/core/Notes Sharing"
 function App() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -114,6 +116,7 @@ function App() {
           
           <Route path="dashboard/addtoCall" element={<CallPage />} />
           <Route path='dashboard/room/:roomId' element={<RoomPage />} />
+          <Route path='dashboard/notes' element={<CreateNotes />} />
           
           {/* Route for all users */}
           <Route path="dashboard/my-profile" element={<MyProfile />} />

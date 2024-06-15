@@ -43,6 +43,12 @@ export const sidebarLinks = [
   },
   {
     id: 8,
+    name: "Notes",
+    path: "/dashboard/notes",
+    icon: "VscNotebook",
+  },
+  {
+    id: 9,
     name: "Cart",
     path: "/dashboard/cart",
     type: ACCOUNT_TYPE.STUDENT,
