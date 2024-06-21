@@ -8,44 +8,67 @@ const contactDetails = [
     icon: "HiChatBubbleLeftRight",
     heading: "Chat on us",
     description: "Our friendly team is here to help.",
-    details: "info@studynotion.com",
+    details: "info@skillteach.com",
   },
   {
     icon: "BiWorld",
     heading: "Visit us",
     description: "Come and say hello at our office HQ.",
-    details:
-      "Akshya Nagar 1st Block 1st Cross, Rammurthy nagar, Bangalore-560016",
+    details: "Jadavpur University Salt Lake Campus Boy's Hostel",
   },
   {
     icon: "IoCall",
     heading: "Call us",
     description: "Mon - Fri From 8am to 5pm",
-    details: "+123 456 7869",
+    details: "+91 9564690340",
   },
 ]
 
 const ContactDetails = () => {
   return (
-    <div className="flex flex-col gap-6 rounded-xl bg-purple-800 p-4 lg:p-6">
-      {contactDetails.map((ele, i) => {
-        let Icon = Icon1[ele.icon] || Icon2[ele.icon] || Icon3[ele.icon]
-        return (
-          <div
-            className="flex flex-col gap-[2px] p-3 text-sm text-richblack-200"
-            key={i}
-          >
-            <div className="flex flex-row items-center gap-3">
-              <Icon size={25} />
-              <h1 className="text-lg font-semibold text-richblack-5">
-                {ele?.heading}
-              </h1>
+    <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 rounded-xl bg-purple-800 p-4 lg:p-6">
+        {contactDetails.map((ele, i) => {
+          let Icon = Icon1[ele.icon] || Icon2[ele.icon] || Icon3[ele.icon]
+          return (
+            <div
+              className="flex flex-col gap-[2px] p-3 text-sm text-richblack-200"
+              key={i}
+            >
+              <div className="flex flex-row items-center gap-3">
+                <Icon size={25} />
+                <h1 className="text-lg font-semibold text-richblack-5">
+                  {ele?.heading}
+                </h1>
+              </div>
+              <p className="font-medium">{ele?.description}</p>
+              <p className="font-semibold">{ele?.details}</p>
             </div>
-            <p className="font-medium">{ele?.description}</p>
-            <p className="font-semibold">{ele?.details}</p>
+          )
+        })}
+      </div>
+
+      <div className="flex flex-col gap-6 rounded-xl bg-purple-800 p-4 lg:p-6">
+        <div className="flex flex-col gap-6 py-5 pt-2">
+          <h1 className="rounded-3xl bg-yellow-400 text-center text-3xl font-bold text-white shadow-lg">
+            Our Live Location
+          </h1>
+          
+          <div
+            className="relative overflow-hidden rounded-lg h-[400px] w-full"
+            style={{ paddingBottom: "50%" }}
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.4374053884085!2d88.40950917413137!3d22.562738233334013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02759ca9c0ebf5%3A0x684cf61cdd8151f!2sJUSL%20Boy&#39;s%20Hostel_S-block!5e0!3m2!1sen!2sin!4v1708781184421!5m2!1sen!2sin"
+              frameBorder="0"
+              allowFullScreen=""
+              aria-hidden="false"
+              tabIndex="0"
+              className="absolute inset-0 h-full w-full"
+            ></iframe>
           </div>
-        )
-      })}
+        </div>
+      </div>
     </div>
   )
 }
