@@ -42,14 +42,14 @@ const TimelineSection = () => {
                     <img src={ele.Logo} alt="" />
                   </div>
                   <div>
-                    <h2 className="font-semibold text-[18px]">{ele.Heading}</h2>
-                    <p className="text-base">{ele.Description}</p>
+                    <h2 className="font-semibold text-white text-[18px]">{ele.Heading}</h2>
+                    <p className="text-base text-richblack-25">{ele.Description}</p>
                   </div>
                 </div>
                 <div
                   className={`hidden ${
                     TimeLine.length - 1 === i ? "hidden" : "lg:block"
-                  }  h-14 border-dotted border-r border-richblack-100 bg-richblack-400/0 w-[26px]`}
+                  }  h-14 border-dotted border-r border-richblack-5 bg-richblack-200/0 w-[26px]`}
                 ></div>
               </div>
             );

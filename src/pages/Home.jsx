@@ -132,7 +132,8 @@ function Home() {
       </div>
 
       {/* Section 2 */}
-      <div className="bg-pure-greys-5 text-richblack-700">
+      <div className=" text-richblack-700 bg-purple-300">
+      {/* bg-pure-greys-5 */}
         <div className="homepage_bg h-[320px]">
           {/* Explore Full Catagory Section */}
           <div className="mx-auto flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8">
@@ -159,7 +160,7 @@ function Home() {
               <HighlightText text={"job that is in demand."} />
             </div>
             <div className="flex flex-col items-start gap-10 lg:w-[40%]">
-              <div className="text-[16px]">
+              <div className="text-[16px] text-richblack-25">
                 The modern SkillTeach is the dictates its own terms. Today, to
                 be a competitive specialist requires more than professional
                 skills.
@@ -174,7 +175,7 @@ function Home() {
           <TimelineSection />
 
           {/* Learning Language Section - Section 3 */}
-          <LearningLanguageSection />
+          {/* <LearningLanguageSection /> */}
         </div>
       </div>
 
