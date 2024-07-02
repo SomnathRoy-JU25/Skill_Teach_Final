@@ -3,13 +3,14 @@ import Note from "./Note";
 
 const NotesList = ({ notes, handleAddNote, handleDeleteNote }) => {
   return (
-    <div className="notes-list">
+    <div className="notes-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {notes.map((note) => (
         <Note
-          id={note.id}
-          key={note.id}
-          text={note.text}
+          id={note._id}
+          key={note._id}
+          text={note.note}
           date={note.date}
+          files={note.files} // Pass files to the Note component
           handleDeleteNote={handleDeleteNote}
         />
       ))}

@@ -5,12 +5,6 @@
   margin: 0;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
 
 .dark-mode {
   background-color: black;
@@ -22,11 +16,7 @@
 }
 
 .search {
-  display: flex;
-  align-items: center;
   background-color: rgb(233, 233, 233);
-  padding: 10px;
-  margin-bottom: 20px;
 }
 
 .search input {
@@ -38,13 +28,6 @@
   outline: none;
 }
 
-.container {
-  max-width: 960px;
-  margin-right: auto;
-  margin-left: auto;
-  padding: 20px;
-  min-height: 100vh;
-}
 
 .notes-list {
   display: grid;
@@ -83,20 +66,5 @@ textarea:focus {
 .note {
   background-color: #ffe5ec;
   border: 1px solid rgb(0, 0, 0, 0.1);
-  padding: 20px;
-  min-height: 170px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  white-space: pre-wrap;
 }
 
-.note-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.delete-icon {
-  cursor: pointer;
-}

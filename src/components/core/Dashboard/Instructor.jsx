@@ -43,7 +43,7 @@ export default function Instructor() {
         <h1 className="text-2xl font-bold text-richblack-5">
           Hi {user?.firstName} 👋
         </h1>
-        <p className="font-medium text-richblack-200">
+        <p className="font-medium text-white">
           Let's start something new
         </p>
       </div>

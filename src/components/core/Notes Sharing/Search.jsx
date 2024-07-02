@@ -3,7 +3,7 @@ import { MdSearch } from 'react-icons/md';
 
 const Search = ({ handleSearchNote }) => {
     return (
-        <div className='search'>
+        <div className='search flex items-center rounded-lg mb-5 p-[10px]'>
             <MdSearch className='search-icons' size="1.3em" />
             <input
                 type="text"

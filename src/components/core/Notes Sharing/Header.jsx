@@ -2,8 +2,8 @@ import React from "react";
 
 const Header = ({ handleToggleDarkMode }) => {
   return (
-    <div className="header">
-      <h1>Notes</h1>
+    <div className="flex items-center justify-between mb-3">
+      <h1 className="text-2xl font-bold text-white">Notes</h1>
       <button
         onClick={() =>
           handleToggleDarkMode((previousDarkMode) => !previousDarkMode)

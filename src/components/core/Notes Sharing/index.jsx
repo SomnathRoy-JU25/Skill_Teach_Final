@@ -1,78 +1,78 @@
-import { useEffect, useState } from "react";
-import { nanoid } from "nanoid";
-import NotesList from "./NotesList";
-import Search from "./Search";
-import Header from "./Header";
+import { useEffect, useState } from "react"
+import { toast } from "react-hot-toast"
+import { useSelector } from "react-redux"
+
+import { apiConnector } from "../../../services/apiConnector"
+import { addNotesEndPoints } from "../../../services/apis"
+import Header from "./Header"
+import NotesList from "./NotesList"
+import Search from "./Search"
+
+const { SHOW_ALL_NOTES, DELETE_NOTE } = addNotesEndPoints
 
 const CreateNotes = () => {
-  const [notes, setNotes] = useState([
-    {
-      id: nanoid(),
-      text: "This is my first note!",
-      date: "15/12/2023",
-    },
-    {
-      id: nanoid(),
-      text: "This is my second note!",
-      date: "20/12/2023",
-    },
-    {
-      id: nanoid(),
-      text: "This is my third note!",
-      date: "25/12/2023",
-    },
-    {
-      id: nanoid(),
-      text: "This is my fourth note!",
-      date: "30/12/2023",
-    },
-  ]);
-
-  const [searchText, setSearchText] = useState("");
-
-  const [darkMode, setDarkMode] = useState(false);
+  const { token } = useSelector((state) => state.auth)
+  const [notes, setNotes] = useState([])
+  const [searchText, setSearchText] = useState("")
+  const [darkMode, setDarkMode] = useState(false)
 
   useEffect(() => {
-    const savedNotes = JSON.parse(localStorage.getItem("react-notes-app-data"));
-
-    if (savedNotes) {
-      setNotes(savedNotes);
+    const fetchNotes = async () => {
+      try {
+        const response = await apiConnector("GET", SHOW_ALL_NOTES)
+        console.log("Fetch Notes Response:", response) // Add logging here
+        if (response.data.success) {
+          setNotes(response.data.data)
+        } else {
+          toast.error("Failed to fetch notes: " + response.data.message)
+        }
+      } catch (error) {
+        toast.error("Error fetching notes: " + error.message)
+        console.error("Error fetching notes:", error) // Add logging here
+      }
     }
-  }, []);
 
-  const AddNote = (text) => {
-    const date = new Date();
-    const newNote = {
-      id: nanoid(),
-      text: text,
-      date: date.toLocaleDateString(),
-    };
-    const newNotes = [...notes, newNote];
-    setNotes(newNotes);
-    localStorage.setItem("react-notes-app-data", JSON.stringify(newNotes));
-  };
+    fetchNotes()
+  }, [])
 
-  const DeleteNote = (id) => {
-    const newNotes = notes.filter((note) => note.id !== id);
-    setNotes(newNotes);
-    localStorage.setItem("react-notes-app-data", JSON.stringify(newNotes));
-  };
+  const addNote = (note) => {
+    setNotes((prevNotes) => [...prevNotes, note])
+  }
+
+  const deleteNote = async (id) => {
+    try {
+      const response = await apiConnector("DELETE", `${DELETE_NOTE}/${id}`, {
+        Authorization: `Bearer ${token}`,
+      })
+      toast.success("Note deleted successfully")
+      if (response.data.success) {
+        setNotes((prevNotes) => prevNotes.filter((note) => note._id !== id))
+        toast.success("Note deleted successfully")
+      } else {
+        console.log("Failed to delete note: " + response.data.message)
+      }
+    } catch (error) {
+      console.log("Error deleting note: " + error.message)
+    }
+  }
 
   return (
     <div className={`${darkMode && "dark-mode"}`}>
-      <div className="container">
+      <div className="ml-auto mr-auto min-h-lvh max-w-full p-5">
         <Header handleToggleDarkMode={setDarkMode} />
         <Search handleSearchNote={setSearchText} />
         <NotesList
-          notes={notes.filter((note) =>
-            note.text.toLowerCase().includes(searchText)
+          notes={notes.filter(
+            (note) =>
+              note.note &&
+              note.note.toLowerCase().includes(searchText.toLowerCase())
           )}
-          handleAddNote={AddNote}
-          handleDeleteNote={DeleteNote}
+          handleAddNote={addNote}
+          handleDeleteNote={deleteNote}
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CreateNotes;
+export default CreateNotes

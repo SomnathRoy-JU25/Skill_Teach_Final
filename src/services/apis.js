@@ -70,3 +70,10 @@ export const settingsEndpoints = {
   CHANGE_PASSWORD_API: BASE_URL + "/auth/changepassword",
   DELETE_PROFILE_API: BASE_URL + "/profile/deleteProfile",
 }
+
+// Add Notes EndPoints
+ export const addNotesEndPoints = {
+    SHOW_ALL_NOTES : BASE_URL + "/notes/all-notes",
+    ADD_ONE_NOTE : BASE_URL + "/notes/add-note",
+    DELETE_NOTE : BASE_URL + "/notes/delete-note"
+ }
