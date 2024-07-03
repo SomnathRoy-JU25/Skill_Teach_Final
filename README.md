@@ -49,3 +49,19 @@ MVC, JWT, Redux toolkit
 The following endpoints are available for testing the Skill Teach.
 
 ### [Click here to view Postman API Documentation](https://documenter.getpostman.com/view/29700625/2sA2rCV2oz)
+
+## User Interfaces
+![Home](src/assets/Screenshots/1.png)
+![alt text](src/assets/Screenshots/2.png)
+![alt text](src/assets/Screenshots/3.png)
+![alt text](src/assets/Screenshots/4.png)
+![alt text](src/assets/Screenshots/5.png)
+![alt text](src/assets/Screenshots/6.png)
+![alt text](src/assets/Screenshots/7.png)
+![alt text](src/assets/Screenshots/8.png)
+![alt text](src/assets/Screenshots/9.png)
+![alt text](src/assets/Screenshots/10.png)
+![alt text](src/assets/Screenshots/11.png)
+![alt text](src/assets/Screenshots/12.png)
+![alt text](src/assets/Screenshots/13.png)
+![alt text](src/assets/Screenshots/14.png)
